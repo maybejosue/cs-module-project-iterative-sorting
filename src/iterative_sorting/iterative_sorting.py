@@ -1,47 +1,52 @@
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
-    pass
-    # loop through n-1 elements
+    # loop thru the array and get the index of the current value
+    for i in range(len(arr)):
+        # create variable that sets the current value as the minimum
+        current_value = i
+        current_minimum = i
+
+        # loop thru the rest of the array
+        for j in range(current_value, len(arr)):
+            # if the current is lower than the minimun value than
+            if arr[j] < arr[current_minimum]:
+                # override the minimun value
+                current_minimum = j
+
+        # switch the current place with the minimum
+        arr[current_value], arr[current_minimum] = arr[current_minimum], arr[current_value]
+    # return the ordered array
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
-    print(arr)
-    place_holder = True
-    while place_holder:
+    # if len of arr == zero
+    if len(arr) == 0:
+        return arr
+        # then return arr
 
-        # while the array is not sorted continue
+    # swapped set to true
+    swapped = True
 
-        # make a for loop
-        # make it check of the length of the array - index
-        # use the index to get the value of the first one and the number beside it as well
-        for idx in range(0, len(arr)-1):
-            counter = 0
-            current_value = idx
-            save_current_value = arr[idx]
-            neighboring_value = current_value + 1
+    # while loop (statement: swapped is truthy)
+    while swapped:
+        swapped = False
+    # set swapped to false
 
-            if arr[idx] > arr[idx - 1]:
-                counter += 1
-
-            if len(arr)-1 == counter:
-                place_holder = False
-
-            if arr[current_value] > arr[neighboring_value]:
-                arr[current_value] = arr[neighboring_value]
-                arr[neighboring_value] = save_current_value
-
-            if arr[current_value] < arr[neighboring_value]:
-                continue
-
-        # if the current value is < its neighboring value
-        # then switch index location
-        # if the current value is > its neighboring value
-        # then continue
-
+    # for loop (i)
+        for i in range(len(arr)-1):
+            if arr[i] > arr[i+1]:
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+                swapped = True
     return arr
+
+    # if arr[i] is greater than arr[i+1]
+    # then arr[i], arr[i+1] = arr[i+1], arr[i] swap values
+    # set swapped to true to prevent while loop from ending
+
+    # return arr
 
 
 '''

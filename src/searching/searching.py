@@ -12,6 +12,8 @@ def binary_search(arr, target):
     # make the highest and lowest a variable
     # calculate the middle of the array by grabbing the highest and lowest
     # variable and dividing it by 2 to find the middle
+    if len(arr) < 1:
+        return -1
     lowest = 0
     highest = len(arr)-1
     # whole loop - true:
@@ -21,16 +23,14 @@ def binary_search(arr, target):
     # repeat the process
     while True:
         middle = (lowest + highest) // 2
-        print(f"{middle} this is the middle")
+        print(lowest, highest, middle, arr[middle], target)
 
-        if target == middle:
-            ind = arr.index(target)
-            print(f"{ind} this is the index being returned")
-            return ind
+        if target == arr[middle]:
+            return middle
 
-        if target > middle:
+        if target > arr[middle]:
             lowest = middle + 1
-        if target < middle:
+        if target < arr[middle]:
             highest = middle - 1
 
     return -1  # not found
